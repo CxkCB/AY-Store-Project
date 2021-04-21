@@ -7,7 +7,15 @@
 <div th:fragment="header">
 
     <header>
+        <ul>
 
+           <li th:if="${session.user == null}"><a href="/login">登录</a></li>
+
+            <li th:if="${session.user != null}"><a th:text="${session.user.getUserNick()}"></a></li>
+            <li th:if="${session.user != null}"><a href="/cart/list">购物车</a></li>
+            <li th:if="${session.user != null}"><a href="/user/logout">注销登录</a></li>
+
+        </ul>
     </header>
 
 </div>

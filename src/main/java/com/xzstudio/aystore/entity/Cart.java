@@ -1,6 +1,5 @@
 package com.xzstudio.aystore.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -14,6 +13,6 @@ public class Cart {
 //    商品ID
     int productId;
 
-//    购物车物品ID
-    int cartId;
+//    购物车物品数量
+    int cartQuantity;
 }
