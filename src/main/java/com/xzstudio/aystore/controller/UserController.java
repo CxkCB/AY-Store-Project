@@ -17,6 +17,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+//    用户进行登录操作
     @PostMapping("/login")
     public String login(String account, String password, HttpSession session){
 
@@ -27,7 +28,7 @@ public class UserController {
         User user;
 
 //        判断传入的数据是否为空
-        if ( account.isEmpty() || password.isEmpty()){
+        if ( account.isEmpty() || password.isEmpty() ){
 
             return "login";
 
@@ -58,9 +59,31 @@ public class UserController {
         return "redirect:/";
     }
 
+//    用户注销登录
     @RequestMapping("/logout")
     public String logout(HttpSession session){
+
         session.removeAttribute("user");
+
+        return "redirect:/";
+    }
+
+    @RequestMapping("/register")
+    public String register(String user_email,String user_phone,String user_pass,String user_nick,HttpSession session){
+
+        if(user_email.isEmpty() || user_phone.isEmpty() || user_pass.isEmpty() || user_nick.isEmpty()){ return "register"; }
+
+        User user = new User();
+
+        user.setUserEmail(user_email);
+        user.setUserPhone(user_phone);
+        user.setUserPass(user_pass);
+        user.setUserNick(user_nick);
+
+        userService.save(user);
+
+        session.setAttribute("user",user);
+
         return "redirect:/";
     }
 
