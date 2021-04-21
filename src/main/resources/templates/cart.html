@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>购物车</title>
+    <th:block th:include="common.html :: source"></th:block>
 </head>
 <body>
+
+<th:block th:include="common.html :: header"></th:block>
+
+<ul th:each="map : ${mapList}">
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <li th:text="${map.get('product').getProductImage()}"></li>
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <li th:text="${map.get('product').getProductTitle()}"></li>
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <li th:text="${map.get('product').getProductDescription()}"></li>
+    <!--suppress ThymeleafVariablesResolveInspection -->
+    <li th:text="${map.get('product').getProductPrice()}"></li>
+    <li th:text="${map.get('productQuantity')}"></li>
+</ul>
+
+<th:block th:include="common.html :: footer"></th:block>
 
 </body>
 </html>

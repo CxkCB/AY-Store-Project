@@ -69,16 +69,16 @@ public class UserController {
     }
 
     @RequestMapping("/register")
-    public String register(String user_email,String user_phone,String user_pass,String user_nick,HttpSession session){
+    public String register(String nickname,String email,String password,String phone,HttpSession session){
 
-        if(user_email.isEmpty() || user_phone.isEmpty() || user_pass.isEmpty() || user_nick.isEmpty()){ return "register"; }
+        if(nickname.isEmpty() || password.isEmpty() || password.isEmpty() || phone.isEmpty()){ return "register"; }
 
         User user = new User();
 
-        user.setUserEmail(user_email);
-        user.setUserPhone(user_phone);
-        user.setUserPass(user_pass);
-        user.setUserNick(user_nick);
+        user.setUserNick(nickname);
+        user.setUserEmail(email);
+        user.setUserPass(password);
+        user.setUserPhone(phone);
 
         userService.save(user);
 

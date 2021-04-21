@@ -14,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/cart")
@@ -26,33 +28,39 @@ public class CartController {
     ProductService productService;
 
     @GetMapping("/list")
-    public ModelAndView list(HttpSession session){
+    public ModelAndView list(HttpSession session) {
 
-//        根据session中的用户ID构建查询封装
+//        获取session中的用户数据
         User user = (User) session.getAttribute("user");
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.eq("user_id",user.getUserId());
 
-//        查询购物车数据
-        List<Cart> cartList = cartService.list(queryWrapper);
+//        依据用户ID构建查询封装
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("user_id",user.getUserId());
 
-//        构建ID集合
+//        进行查询获得购物车实体类集合
+        List<Cart> cartList = cartService.list(wrapper);
+
+//        获得购物车实体类中的商品ID
         List<Integer> idList = new ArrayList<>();
         cartList.forEach(cart -> {
             idList.add(cart.getProductId());
         });
 
-//        根据购物车的批量商品ID查询商品
+//        根据IDS进行批量查询，获得购物车中的商品数据
         List<Product> productList = productService.listByIds(idList);
 
-//        添加购物车商品数据数量
+        List<Map<String,Object>> mapList = new ArrayList<>();
+
+        for (int i=0;i<cartList.size();i++){
+            HashMap<String,Object> map = new HashMap<>();
+            map.put("productQuantity",cartList.get(i).getCartQuantity());
+            map.put("product",productList.get(i));
+            mapList.add(map);
+        }
+
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject(productList);
-
-//        返回购物车页面
         modelAndView.setViewName("cart");
+        modelAndView.addObject("mapList",mapList);
         return modelAndView;
-
     }
-
 }
