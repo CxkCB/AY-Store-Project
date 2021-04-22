@@ -16,6 +16,7 @@
     <li th:text="${'商品描述'+product.getProductDescription()}"></li>
     <li th:text="${'商品库存'+product.getProductInventory()}"></li>
     <li th:text="${'商品价格'+product.getProductPrice()}"></li>
+    <a th:href="@{/product/info(product_id = ${product.getProductId()})}">立即购买</a>
 </ul>
 
 <th:block th:include="common.html :: footer"></th:block>
