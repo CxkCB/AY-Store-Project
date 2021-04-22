@@ -9,6 +9,15 @@
 
 <th:block th:include="common.html :: header"></th:block>
 
+<ul th:each="product : ${productList}">
+    <li th:text="${'商品ID：'+product.getProductId()}"></li>
+    <li th:text="${'商品图片：'+product.getProductImage()}"></li>
+    <li th:text="${'商品标题'+product.getProductTitle()}"></li>
+    <li th:text="${'商品描述'+product.getProductDescription()}"></li>
+    <li th:text="${'商品库存'+product.getProductInventory()}"></li>
+    <li th:text="${'商品价格'+product.getProductPrice()}"></li>
+</ul>
+
 <th:block th:include="common.html :: footer"></th:block>
 
 </body>

@@ -10,15 +10,11 @@
 <th:block th:include="common.html :: header"></th:block>
 
 <ul th:each="map : ${mapList}">
-    <!--suppress ThymeleafVariablesResolveInspection -->
-    <li th:text="${map.get('product').getProductImage()}"></li>
-    <!--suppress ThymeleafVariablesResolveInspection -->
-    <li th:text="${map.get('product').getProductTitle()}"></li>
-    <!--suppress ThymeleafVariablesResolveInspection -->
-    <li th:text="${map.get('product').getProductDescription()}"></li>
-    <!--suppress ThymeleafVariablesResolveInspection -->
-    <li th:text="${map.get('product').getProductPrice()}"></li>
-    <li th:text="${map.get('productQuantity')}"></li>
+    <li th:text="${'商品ID：'+map.get('product_id')}"></li>
+    <li th:text="${'商品图片：'+map.get('product_image')}"></li>
+    <li th:text="${'商品标题：'+map.get('product_title')}"></li>
+    <li th:text="${'商品价格：'+map.get('product_price')}"></li>
+    <li th:text="${'商品数量:'+map.get('product_quantity')}"></li>
 </ul>
 
 <th:block th:include="common.html :: footer"></th:block>

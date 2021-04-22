@@ -15,9 +15,9 @@ public class ProductCategory {
     int firstClass;
 
 //    商品二级第二分类(SecondClass)
-    int SecondClass;
+    int secondClass;
 
 //    商品三级第三分类(ThirdClass)
-    int ThirdClass;
+    int thirdClass;
 
 }

@@ -7,12 +7,16 @@ import lombok.Data;
 public class Cart {
 
 //    用户ID
-    @TableId(value = "user_id")
+    @TableId(value = "cart_id")
+    int cartId;
+
+//    用户ID
     int userId;
 
 //    商品ID
     int productId;
 
 //    购物车物品数量
-    int cartQuantity;
+    int productQuantity;
+
 }
