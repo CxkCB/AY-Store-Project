@@ -1,0 +1,115 @@
+#searchBox{
+    width: 1440px;
+    height: 60px;
+    margin: 20px auto;
+
+    position: relative;
+
+    background-color: lightseagreen;
+
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.35);
+}
+
+#searchBox>input{
+    position: absolute;
+    right: 170px;
+    top: 15px;
+
+    width: 250px;
+    height: 32px;
+
+    border: none;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.35);
+
+    box-sizing: border-box;
+
+    padding: 0 10px;
+}
+
+#searchBox>button{
+    position: absolute;
+    right: 120px;
+    top: 15px;
+
+    width: 50px;
+    height: 32px;
+
+    border: 2px solid white;
+    border-radius: 0 5px 5px 0;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.35);
+
+    background-color: lightseagreen;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+#searchBox>ul{
+    margin-left: 120px;
+    display: inline-block;
+}
+
+#searchBox>ul li{
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    margin: 15px 40px 0 0;
+}
+
+#infoBox{
+    width: 1440px;
+    height: 500px;
+    margin: 30px auto;
+    border-radius: 5px;
+    position: relative;
+}
+
+#infoBox>#imageBox{
+    height: 500px;
+    width: 1000px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.35);
+    display: inline-block;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-image: image("/static/image/paojie1.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+#infoBox>#userBox{
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.35);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    background-color: lightseagreen;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.productBox{
+    width: 1440px;
+    height: 820px;
+    margin: 30px auto;
+    border-radius: 5px;
+}
+
+.productBox>h2{
+    border-left: 4px solid lightseagreen;
+    padding-left: 15px;
+}
+
+.productBox>ul{
+    margin-top: 30px;
+}
+
+.productBox>ul li{
+    width: 300px;
+    height: 350px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.35);
+    margin: 10px 27px;
+    border-radius: 5px;
+}
